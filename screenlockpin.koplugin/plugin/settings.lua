@@ -47,6 +47,12 @@ local function mergeDefaultSettings()
     if G_reader_settings:hasNot("screenlockpin_ratelimit") then
         G_reader_settings:makeTrue("screenlockpin_ratelimit")
     end
+    if G_reader_settings:hasNot("screenlockpin_note_mode") then
+        G_reader_settings:saveSetting("screenlockpin_note_mode", "disabled")
+    end
+    if G_reader_settings:hasNot("screenlockpin_note_text") then
+        G_reader_settings:saveSetting("screenlockpin_note_text", "")
+    end
 end
 
 local function init()
@@ -81,6 +87,21 @@ end
 
 local function setUiSetting(key, value)
     G_reader_settings:saveSetting("screenlockpin_ui_" .. key, value)
+end
+
+local function getNoteSettings()
+    return {
+        mode = G_reader_settings:readSetting("screenlockpin_note_mode"),
+        text = G_reader_settings:readSetting("screenlockpin_note_text"),
+    }
+end
+
+local function setNoteMode(mode)
+    G_reader_settings:saveSetting("screenlockpin_note_mode", mode)
+end
+
+local function setNoteText(text)
+    G_reader_settings:saveSetting("screenlockpin_note_text", text)
 end
 
 --
@@ -160,6 +181,8 @@ local function purge()
     G_reader_settings:delSetting("screenlockpin_onboot")
     G_reader_settings:delSetting("screenlockpin_ratelimit")
     G_reader_settings:delSetting("screenlockpin_restore_screensaver_delay")
+    G_reader_settings:delSetting("screenlockpin_note_mode")
+    G_reader_settings:delSetting("screenlockpin_note_text")
 end
 
 return {
@@ -169,6 +192,10 @@ return {
     getUiSettings = getUiSettings,
     setUiSettings = setUiSettings,
     setUiSetting = setUiSetting,
+
+    getNoteSettings = getNoteSettings,
+    setNoteMode = setNoteMode,
+    setNoteText = setNoteText,
 
     readPin = readPin,
     setPin = setPin,

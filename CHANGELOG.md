@@ -14,6 +14,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - [#5](https://github.com/oleasteo/koreader-screenlockpin/issues/5)
   The lock screen panel position is configurable.
+- [#14](https://github.com/oleasteo/koreader-screenlockpin/issues/14)
+  Notes can be written to provide on the lock screen without PIN. E.g.,
+  emergency or contact information.
 
 ## [2025.10-3] - 2025-10-29
 

@@ -20,6 +20,7 @@ Just what you'd expect from a PIN lock screen, and more… 😅
 - ◻️ **Privacy first** — hides everything but your wallpaper from public eyes
 - 🚀 **Lock on boot** — secures your device on KOReader boot (configurable)
 - 🔒 **Lock on wakeup** — secures your device after sleep (configurable)
+- 📃 **Contact notes** — so that honest people will know how to return your device
 - ⚡ **Instant unlock** — immediate response, no extra confirmation button
 - 🚥 **Rate Limiting** — short delays after repeated failed attempts
 - 🪶 **Lightweight design** — optimized for performance

@@ -69,16 +69,38 @@ local UiSettingsDialog = ConfigDialog:extend {
                 },
             },
         },
+        {
+            icon = "appbar.typeset",
+            options = {
+                {
+                    name = "note_mode",
+                    name_text = _("Show notes"),
+                    toggle = { C_("Lock screen notes", "off"), C_("Lock screen notes", "button") },
+                    args = { "disabled", "button" },
+                    values = { "disabled", "button" },
+                    event = "SetNoteMode",
+                },
+                {
+                    name = "note_text",
+                    name_text = _("Notes text"),
+                    item_text = { _("Edit…") },
+                    event = "EditNoteText",
+                },
+            },
+        }
     },
 }
 
 function UiSettingsDialog:init()
     self.ui = self
     local uiSettings = pluginSettings.getUiSettings()
+    local noteSettings = pluginSettings.getNoteSettings()
     self.configurable = {
         ui_scale = uiSettings.scale,
         ui_pos_x = uiSettings.pos_x,
         ui_pos_y = 100 - uiSettings.pos_y,
+        note_mode = noteSettings.mode,
+        note_text = noteSettings.text,
     }
     ConfigDialog.init(self)
 end
@@ -98,6 +120,53 @@ end
 function UiSettingsDialog:onSetScale(value)
     pluginSettings.setUiSetting("scale", value)
     self.configurable.ui_scale = value
+    return true
+end
+
+function UiSettingsDialog:onSetNoteMode(value)
+    pluginSettings.setNoteMode(value)
+    self.configurable.note_mode = value
+    return true
+end
+
+function UiSettingsDialog:onEditNoteText()
+    local InputDialog = require("ui/widget/inputdialog")
+    local UIManager = require("ui/uimanager")
+    local Screen = require("device").screen
+
+    local current = self.configurable.note_text or ""
+    self._note_input_dialog = InputDialog:new{
+        title = _("Lock screen notes (emergency info / contact / etc.)"),
+        input = current,
+        scroll = true,
+        allow_newline = true,
+        text_height = Screen:scaleBySize(150),
+        buttons = {
+            {
+                {
+                    text = _("Cancel"),
+                    id = "close",
+                    callback = function()
+                        UIManager:close(self._note_input_dialog)
+                        self._note_input_dialog = nil
+                    end,
+                },
+                {
+                    text = _("Save"),
+                    is_enter_default = true,
+                    callback = function()
+                        local text = self._note_input_dialog:getInputText() or ""
+                        pluginSettings.setNoteText(text)
+                        self.configurable.note_text = text
+                        UIManager:close(self._note_input_dialog)
+                        self._note_input_dialog = nil
+                    end,
+                },
+            },
+        },
+    }
+    UIManager:show(self._note_input_dialog)
+    self._note_input_dialog:onShowKeyboard()
     return true
 end
 

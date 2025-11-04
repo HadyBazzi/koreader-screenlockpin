@@ -7,9 +7,11 @@ local Screen = Device.screen
 
 local pluginSettings = require("plugin/settings")
 local screensaverUtil = require("plugin/util/screensaverutil")
+local NotesFrame = require("plugin/ui/lockscreen/notesframe")
 local LockScreenFrame = require("plugin/ui/lockscreen/lockscreenframe")
 
 local overlay
+local notes
 
 local function relayout(refreshmode)
     overlay:relayout(nil)
@@ -45,6 +47,10 @@ local function closeLockScreen()
 end
 
 local function onSuspend()
+    if notes then
+        UIManager:close(notes)
+        notes = nil
+    end
     if not overlay then return end
     Device.screen_saver_lock = false
     overlay:setVisible(false)
@@ -63,6 +69,22 @@ local function onResume()
     if not overlay then return end
     Device.screen_saver_lock = true
     reuseShowOverlay()
+end
+
+local function showNotes()
+    if notes or not overlay then return end
+    local text = pluginSettings.getNoteSettings().text or _("No note configured.")
+    local scale = pluginSettings.getUiSettings().scale / 100
+    notes = NotesFrame:new {
+        text = text,
+        region = overlay._content_region,
+        scale = scale,
+        on_close = function()
+            UIManager:close(notes, "ui", notes.region)
+            notes = nil
+        end
+    }
+    UIManager:show(notes, "ui", notes.region)
 end
 
 local function showOrClearLockScreen(cause)
@@ -90,6 +112,7 @@ local function showOrClearLockScreen(cause)
         onResume = onResume,
         -- LockScreenFrame
         on_unlock = closeLockScreen,
+        on_show_notes = showNotes,
     }
     UIManager:show(overlay, "full", overlay:getRefreshRegion())
 end
