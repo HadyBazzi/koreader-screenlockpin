@@ -14,16 +14,20 @@ access.
 
 ## ✨ Features
 
-Just what you'd expect from a PIN lock screen, and more… 😅
+Just what you'd expect from a PIN lock screen…
 
-- 🗽 **Custom PIN length** — supports 3–12 digits
-- ◻️ **Privacy first** — hides everything but your wallpaper from public eyes
-- 🚀 **Lock on boot** — secures your device on KOReader boot (configurable)
-- 🔒 **Lock on wakeup** — secures your device after sleep (configurable)
-- 📃 **Contact notes** — so that honest people will know how to return your device
-- ⚡ **Instant unlock** — immediate response, no extra confirmation button
-- 🚥 **Rate Limiting** — short delays after repeated failed attempts
-- 🪶 **Lightweight design** — optimized for performance
+- 🔒 **Lock on wakeup** — secures your device after sleep
+- 🪝 **Lock on boot** — secures your device on KOReader boot
+- 🚷 **Rate Limit** — forced delays after repeatedly failed attempts
+
+and more…
+
+- 🪄 **Instant unlock** — immediate response, no extra confirmation button
+- 🪧 **Contact notes** — people should know how to return a lost device
+- 🛡️ **Privacy first** — hides everything but your wallpaper from public eyes
+- 🎯 **Customizable layout** — can be configured for single-handed use
+- 🪃 **Lightweight design** — optimized for performance
+- 🗽 **PIN length** — 3 to 12 digits
 
 This plugin is designed for **privacy and casual protection**, not cryptographic
 security.
