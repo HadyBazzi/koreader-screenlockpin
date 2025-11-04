@@ -5,6 +5,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 [//]: # (## [Unreleased])
 
+## [2025.11] - 2025-11-04
+
+The lock screen becomes even more customizable. With the new panel position
+controls, I personally put it in small to the right edge near the bottom, so I
+can unlock single-handedly. Feels so easy now 🪶
+
+Also, as I'm gonna travel soon, I had to add customizable notes to the lock
+screen, just in case the device is lost (and found by some honest person) 🤞😅
+
+Have fun!
+
+### Changed
+
+- The lock screen panel size factor is slightly changed, to allow for even
+  smaller panels.
+
+### Added
+
+- [#5](https://github.com/oleasteo/koreader-screenlockpin/issues/5)
+  The lock screen panel position is configurable.
+- [#14](https://github.com/oleasteo/koreader-screenlockpin/issues/14)
+  Notes can be written to provide on the lock screen without PIN. E.g.,
+  emergency or contact information.
+
 ## [2025.10-3] - 2025-10-29
 
 The UI has received a lot of work since the last release. Instead of the plain

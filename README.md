@@ -1,8 +1,8 @@
 # ScreenLockPin — Protect your KOReader with a PIN
 
 [![MIT License](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
-[![Release Version](https://img.shields.io/badge/Release-2025.10--3-blue.svg)](https://github.com/oleasteo/koreader-screenlockpin/releases/tag/v2025.10-3)
-[![Compatibility](https://img.shields.io/badge/Comptibility-KOReader%20v2025.08-yellow.svg)](https://github.com/koreader/koreader/tree/v2025.08)
+[![Release Version](https://img.shields.io/badge/Release-2025.11-blue.svg)](https://github.com/oleasteo/koreader-screenlockpin/releases/tag/v2025.11)
+[![Compatibility](https://img.shields.io/badge/Comptibility-KOReader%20v2025.10-yellow.svg)](https://github.com/koreader/koreader/tree/v2025.10)
 
 **ScreenLockPin**: A fast, sophisticated PIN Lock Screen that protects your
 [KOReader](https://github.com/koreader/koreader) content from unauthorized
@@ -20,6 +20,7 @@ Just what you'd expect from a PIN lock screen, and more… 😅
 - ◻️ **Privacy first** — hides everything but your wallpaper from public eyes
 - 🚀 **Lock on boot** — secures your device on KOReader boot (configurable)
 - 🔒 **Lock on wakeup** — secures your device after sleep (configurable)
+- 📃 **Contact notes** — so that honest people will know how to return your device
 - ⚡ **Instant unlock** — immediate response, no extra confirmation button
 - 🚥 **Rate Limiting** — short delays after repeated failed attempts
 - 🪶 **Lightweight design** — optimized for performance
@@ -62,6 +63,7 @@ issues you encounter.
 
 Tested devices:
 - ✅ Kindle Oasis (10th generation)
+- ✅ Kobo Aura (N514)
 
 If you tested this plugin on another device type, please add it to the list
 above.
