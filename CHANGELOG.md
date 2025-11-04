@@ -3,7 +3,18 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+[//]: # (## [Unreleased])
+
+## [2025.11] - 2025-11-04
+
+The lock screen becomes even more customizable. With the new panel position
+controls, I personally put it in small to the right edge near the bottom, so I
+can unlock single-handedly. Feels so easy now 🪶
+
+Also, as I'm gonna travel soon, I had to add customizable notes to the lock
+screen, just in case the device is lost (and found by some honest person) 🤞😅
+
+Have fun!
 
 ### Changed
 
